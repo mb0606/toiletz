@@ -8,13 +8,10 @@ class SearchBar extends Component {
 
 	constructor(props) {
 		super(props);
-
 		this.state = { term: ""};
-
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 	
-
 	onFormSubmit(event) {
 		this.props.search(this.state.term);
 		this.setState({ term: "" });
@@ -42,9 +39,4 @@ class SearchBar extends Component {
     };
 };
 
-
-function mapStateToProps(state) {
-	return {};
-}
-
-export default connect(mapStateToProps, actions)(SearchBar);
+export default connect(null, actions)(SearchBar);

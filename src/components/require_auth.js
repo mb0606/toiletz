@@ -1,4 +1,4 @@
-//Higher order components
+//Higher order component
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';

@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 class ToiletDetail extends Component{
 
-	componentDidMount(){
+	componentWillMount(){
 		this.props.getReviews(this.props.toilet.id)
 	}
 
@@ -13,7 +13,6 @@ class ToiletDetail extends Component{
 		let reviewsObj = this.props.reviews;
 		let reviewsArray = [];
 		let tempError = '"Received GET at /api/review/toilet/:reviewId"';
-		console.log(JSON.stringify(reviewsObj) ==tempError);
 		if(JSON.stringify(reviewsObj) == tempError) {
 			return (
 				<li className='list-group-item'>
@@ -36,9 +35,7 @@ class ToiletDetail extends Component{
 					</div>
 				);
 			})	
-		} else {
-			console.log("SOMETHING WENT WRONG WITH REVIEWS IN TOILET_DETAILS");
-		}
+		} 
 	}
 
 	renderLink(){

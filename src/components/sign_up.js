@@ -4,28 +4,24 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import * as actions from '../actions/auth';
 
-
 class SignUp extends Component {
 
-renderAlert(){
-	if(this.props.errorMessage){
-		return (
-			<div className='alert alert-danger'>
-				<strong>Oops!</strong>{this.props.errorMessage}
-			</div>
-			);
+	renderAlert(){
+		if(this.props.errorMessage){
+			return (
+				<div className='alert alert-danger'>
+					<strong>Oops!</strong>{this.props.errorMessage}
+				</div>
+				);
+		}
 	}
-}
 
-onSubmit(props) {
-
+	onSubmit(props) {
 		this.props.signupUser(props)		
-	
 	}
 	
     render() {
     	const { fields:{ gender, email, password, passwordConfirm}, handleSubmit } = this.props
-
 
 	    return (
 	    <div className="top-margin">
@@ -137,7 +133,6 @@ function validate(values){
 		errors.password = 'Passwords must match';
 	}
 
-
 	return errors;
 
 }
@@ -147,7 +142,6 @@ function mapStateToProps(state){
 		errorMessage: state.auth.error, //from rootReducer (index.js in reducers)
 	}
 }
-
 
 export default reduxForm({
 	form: 'signup',

@@ -7,7 +7,6 @@ import querystring from 'querystring';
 const API_KEY = "AIzaSyAUpKh2acbg-j_j4aRr-DGjeF7NXwCK_J4";    //This will be imported from env-google but it's not working now so just put your key here and remove before push
 
 
-
 export const FETCH_TOILETZ = 'FETCH_TOILETZ';
 export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const SELECT_TOILETZ = 'SELECT_TOILETZ';
@@ -124,8 +123,6 @@ export function createReview(props,toilet,userId) {
 	    id_Toiletz: toilet.id,
 	    token: localStorage.getItem('token')
 	};
-
-	console.log("inside actions", params)
 
 	const request = axios.post('./api/review/',params);
 	

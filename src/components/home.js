@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 import GoogleMap from './google_map'
 import ToiletList from '../container/toilet_list';
 
-
 export default class Home extends Component{
 
 	render(){

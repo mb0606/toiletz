@@ -4,10 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/auth';
 
-
-
 class Header extends Component{
-
 
 	renderLinks(){
 		if (this.props.auth){

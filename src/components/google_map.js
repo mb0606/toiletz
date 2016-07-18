@@ -1,7 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 
 import {connect} from 'react-redux';
 
@@ -15,6 +15,14 @@ export default class SimpleMap extends Component{
     this.state = { hide: true };
   }
 
+  onComponentDidMount() {
+    this.props.toilets.map((toilet, index) => {
+      var obj = {};
+      obj['marker' + index] = false;
+      this.setState(obj);
+      });
+      this.setState({hide: false})
+  }
 
   onMapCreated(map) {
     map.setOptions({
@@ -28,21 +36,13 @@ export default class SimpleMap extends Component{
     });
   }
 
-
-
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
-  }
-
   onCloseClick(index) {
-    console.log('onCloseClick');
     var obj = {};
               obj['marker' + index] = false;
               this.setState(obj);
   }
 
   onClick(e) {
-    console.log('e',e)
     this.props.toilets.map((toilet, index) => {
               var obj = {};
               obj['marker' + index] = false;
@@ -53,33 +53,20 @@ export default class SimpleMap extends Component{
               this.setState(obj);
   }
   
-  onComponentDidMount() {
-    this.props.toilets.map((toilet, index) => {
-      var obj = {};
-      obj['marker' + index] = false;
-      this.setState(obj);
-      });
-      this.setState({hide: false})
-  }
-  
-
   render() {
 
     if(!this.props.toilets){
       return null;
     }
 
-    console.log("Gmap", this.props.toilets)
     if(typeof this.props.toilets === "string"){
-      console.log("inside if")
       return (
         <div>
         <h3>{this.props.toilets}</h3>
         </div>
       )
     }
-
-
+    
     return (
       <Gmaps
         width={'1200px'}
@@ -119,13 +106,11 @@ export default class SimpleMap extends Component{
                   onCloseClick={this.onCloseClick.bind(this, index)} />
               )
             }})}
-
       </Gmaps>
     );
   }
 
 };
-
 
 function mapStateToProps(state){
   return{

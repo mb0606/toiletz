@@ -7,29 +7,22 @@ import * as actions from '../actions/auth';
 
 class SignIn extends Component {
 
-
-
-onSubmit({ email, password}) {
-
-		this.props.login({ email, password})
-			
+	onSubmit({ email, password}) {
+		this.props.login({ email, password})		
 	}
 
-renderAlert(){
-	if(this.props.errorMessage){
-		return (
-			<div className='alert alert-danger'>
-				<strong>Oops!</strong>{this.props.errorMessage}
-			</div>
+	renderAlert(){
+		if(this.props.errorMessage){
+			return (
+				<div className='alert alert-danger'>
+					<strong>Oops!</strong>{this.props.errorMessage}
+				</div>
 			);
+		}
 	}
-}
 
-
-	
     render() {
     	const { fields:{email, password}, handleSubmit } = this.props
-
 
 	    return (
 	    <div className="top-margin">
@@ -101,7 +94,6 @@ function validate(values){
 	}
 
 	return errors;
-
 }
 
 
