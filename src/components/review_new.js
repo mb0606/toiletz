@@ -8,7 +8,7 @@ class ReviewsNew extends Component {
 	static contextTypes = {
 		router: PropTypes.object
 	};
-	
+
 	onSubmit(props) {
 		const toilet = this.props.toilet;
 		const userId = localStorage.getItem('userId');
@@ -23,29 +23,37 @@ class ReviewsNew extends Component {
 
 		return (
 			<div className="top-margin">
-				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-					<h3>Create a new Review</h3>
-					<div className={`form-group ${description.touched && description.invalid ? 'has-danger' : '' }`}>
-						<label> Content </label>
-						<textarea type="text" className='form-control' {...description}/>
-						<div className='text-help'>
-							{description.touched ? description.error : ''}
-						</div>
-					</div>
+				<div className="container">
+					<div className="row">
+						<div className="col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2">
+							<form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="form-horizontal panel-form">
+								<h3>Create a new Review</h3>
+								<div className={`form-group ${description.touched && description.invalid ? 'has-danger' : '' }`}>
+									<label> Content </label>
+									<textarea type="text" className='form-control' {...description}/>
+									<div className='text-help'>
+										{description.touched ? description.error : ''}
+									</div>
+								</div>
 
-					<div className={`form-group ${rating.touched && rating.invalid ? 'has-danger' : '' }`}>
-						<label> Rating /5</label>
-						<input type="number" className='form-control' {...rating}/>
-						<div className='text-help'>
-							{rating.touched ? rating.error : ''}
+								<div className={`form-group ${rating.touched && rating.invalid ? 'has-danger' : '' }`}>
+									<label> Rating /5</label>
+									<input type="number" className='form-control' {...rating}/>
+									<div className='text-help'>
+										{rating.touched ? rating.error : ''}
+									</div>
+								</div>
+								<div className="form-group">
+									<div className='cancel'>
+								<button type='submit' className='btn btn-submit' >Submit</button>
+									<Link to='/' > <i className="fa fa-chevron-circle-left" aria-hidden="true"> </i><span  type='submit'>
+									Cancel</span></Link>
+								</div>
+								</div>
+							</form>
 						</div>
-					</div>
-
-					<button type='submit' className='btn btn-primary' >Submit</button>
-					<Link to='/'> <button className='btn btn-danger' type='submit'>
-					Cancel</button>
-					</Link>
-				</form>
+						</div>
+						</div>
 			</div>
 
 		);
@@ -81,4 +89,3 @@ export default reduxForm({
 	fields: ['description','rating'],
 	validate
 },mapStateToProps,{ createReview })(ReviewsNew)
-
