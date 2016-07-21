@@ -27,12 +27,12 @@ class ToiletDetail extends Component{
 			return reviewsArray.map((review) => {
 				return (
 					<div>
-						<ul className=''>
-							<li className='' key={review.id}>
-								<h5>Rating: {review.rating}/5</h5>
-								<p>Description: {review.description}</p>
-							</li>
-						</ul>
+						<div className='review'>
+							<div className="review-content" key={review.id}>
+								<p className="review-description"> {review.description}</p>
+								<h5 className="review-rating" >Rating - {review.rating}/5</h5>
+							</div>
+						</div>
 					</div>
 				);
 			})
@@ -45,7 +45,7 @@ class ToiletDetail extends Component{
 		if(this.props.auth){
 			return (
 				<Link to={'review_new'}>
-					<button type='submit' className='btn btn-submit'>Add a review</button>
+					<button type='submit' className='btn btn-submit add-review'>Add a review</button>
 				</Link>
 			)
 		}
@@ -59,7 +59,7 @@ class ToiletDetail extends Component{
 		return (
 			<div className="container">
 				<div className="row">
-					<div className="col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2">
+					<div className="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 						<div className="panel-form">
 
 							<legend className="toilet-title">{this.props.toilet.name}</legend>

@@ -233,6 +233,7 @@ legend.toilet-title {
 legend.reviews-title {
   margin-top: 2em;
   font-size: 2em;
+  margin-bottom:0px;
 }
 .toilet-address {
   font-size: 1em;
@@ -250,4 +251,22 @@ legend.reviews-title {
 }
 .toilet-description {
   margin: 25px 0;
+}
+
+/**************************************************/
+/***********   Review view    *********************/
+/**************************************************/
+
+.review {
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding:40px 20px;
+}
+.review-rating {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.btn.btn-submit.add-review {
+  margin-top:20px;
 }
