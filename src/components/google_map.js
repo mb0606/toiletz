@@ -143,7 +143,7 @@ export default class SimpleMap extends Component{
 
     return (
         <Gmaps
-          width={'1200px'}
+          width={'100%'}
           height={'600px'}
           lat={34.016484}
           lng={-118.496216}
